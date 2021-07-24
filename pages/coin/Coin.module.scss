@@ -1,0 +1,147 @@
+.coin_page {
+	width: 70vw;
+	margin: auto;
+	.grid_container_one {
+		padding: 15px;
+		display: grid;
+		grid-template-columns: 2fr 1fr;
+		.coin_price_details {
+			display: flex;
+			flex-direction: column;
+
+			img {
+				width: 40px;
+				height: 100%;
+			}
+
+			h5 {
+				padding: 5px;
+			}
+
+			.coin {
+				display: flex;
+				align-items: baseline;
+				padding: 10px 10px 10px 0;
+
+				&__item {
+					padding-right: 5px;
+				}
+			}
+
+			.coin_price {
+				padding: 10px 10px 10px 0;
+
+				.coin_current {
+					font-size: 2rem;
+					font-weight: bolder;
+				}
+
+				&__age {
+					font-size: 0.7rem;
+				}
+			}
+		}
+
+		.year_growth {
+			text-align: right;
+			font-size: 1.7rem;
+			font-weight: bold;
+			p {
+				font-size: 1.5rem;
+				font-weight: bolder;
+			}
+		}
+	}
+	.grid_container_two {
+		padding: 15px;
+		display: grid;
+		gap: 40px;
+		grid-template-columns: 2fr 1fr;
+
+		.coin_supply_details {
+			.supply__item {
+				display: flex;
+				justify-content: space-between;
+				padding: 10px 0;
+			}
+		}
+		.coin_price_details {
+			.supply__item {
+				display: flex;
+				justify-content: space-between;
+				padding: 10px 0;
+			}
+		}
+	}
+
+	.red {
+		color: #f00606;
+	}
+
+	.green {
+		color: #13c783;
+	}
+}
+
+@media screen and (max-width: 900px) {
+	.coin_page {
+		width: 90vw;
+	}
+}
+@media screen and (max-width: 700px) {
+	.coin_page {
+		.grid_container_two {
+			grid-template-columns: 1fr;
+		}
+	}
+}
+
+@media screen and (max-width: 520px) {
+	.coin_page {
+		.grid_container_two {
+			.coin_supply_details {
+				.supply__item {
+					flex-direction: column;
+					text-align: center;
+					align-items: center;
+
+					p {
+						padding: 7px 0;
+					}
+				}
+			}
+		}
+	}
+}
+
+@media screen and (max-width: 450px) {
+	.coin_page {
+		.grid_container_one {
+			display: flex;
+			flex-direction: column;
+			text-align: center;
+			align-items: center;
+			margin: auto;
+			.coin_price_details {
+				.coin {
+					flex-direction: column;
+					align-items: center;
+				}
+			}
+			.year_growth {
+				border-top: #13c783 1px solid;
+				text-align: left;
+				font-size: 1rem;
+				font-weight: bold;
+				display: flex;
+				padding: 10px;
+
+				p {
+					padding-left: 25px;
+					font-size: 1.2rem;
+					font-weight: bolder;
+				}
+			}
+		}
+	}
+}

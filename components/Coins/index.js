@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import styles from './Coins.module.scss';
 
 const Coins = ({
@@ -12,11 +13,12 @@ const Coins = ({
 	id,
 }) => {
 	return (
-		<>
+		<Link href='/coin/[id]' as={`/coin/${id}`}>
+			<a>
 			<div className={styles.coin_container}>
 				<div className={styles.coin_row}>
 					<div className={styles.coin}>
-						{/* <h1 className={styles.coin_h1}> {position} </h1> */}
+						<h1 className={styles.coin_position}> {position} </h1>
 						<img
 							src={image}
 							height='100'
@@ -28,15 +30,15 @@ const Coins = ({
 						<h4 className={styles.coin_symbol}>{symbol}</h4>
 					</div>
 					<div className={styles.coin_data}>
-						<p className={styles.coin_price}>$ {price.toLocaleString()}</p>
+						<p className={styles.coin_price}>$ {price.toLocaleString()} </p>
 						<p className={styles.coin_volume}>$ {volume.toLocaleString()}</p>
 
 						{priceChange < 0 ? (
-							<p className={`${styles.coin_percent},${styles.red}`}>
+							<p className={(styles.coin_percent, styles.red)}>
 								{priceChange.toFixed(2)} %
 							</p>
 						) : (
-							<p className={`${styles.coin_percent},${styles.green}`}>
+							<p className={(styles.coin_percent, styles.green)}>
 								{priceChange.toFixed(2)} %
 							</p>
 						)}
@@ -47,7 +49,8 @@ const Coins = ({
 					</div>
 				</div>
 			</div>
-		</>
+			</a>
+		</Link>
 	);
 };
 

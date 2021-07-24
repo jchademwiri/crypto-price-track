@@ -1,4 +1,4 @@
-import Coins from '../Coins';
+import Coins from './Coins';
 export default function CoinList({ filteredCoins }) {
 	return (
 		<>
