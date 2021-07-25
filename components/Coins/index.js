@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import styles from './Coins.module.scss';
+import { MdTrendingUp, MdTrendingDown } from 'react-icons/md';
 
 const Coins = ({
 	position,
@@ -41,11 +42,11 @@ const Coins = ({
 
 							{priceChange < 0 ? (
 								<p className={(styles.coin_percent, styles.red)}>
-									{priceChange.toFixed(2)} %
+									<MdTrendingDown /> {priceChange.toFixed(2)} %
 								</p>
 							) : (
 								<p className={(styles.coin_percent, styles.green)}>
-									{priceChange.toFixed(2)} %
+									<MdTrendingUp /> {priceChange.toFixed(2)} %
 								</p>
 							)}
 

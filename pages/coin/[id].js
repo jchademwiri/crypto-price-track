@@ -1,14 +1,16 @@
 import moment from 'moment';
-// import Image from 'next/image';
+import Image from 'next/image';
 import Layout from '../../components/Layout';
 import styles from './Coin.module.scss';
 
 import { MdTrendingUp, MdTrendingDown } from 'react-icons/md';
-import { IoTrendingDown, IoMdTrendingUp } from 'react-icons/io';
 
 const Coin = ({ coin }) => {
 	let pageTitle = `${coin.name} Price `;
 	const todayDate = new Date();
+	const myLoader = ({ src }) => {
+		return `${coin.image.small}`;
+	};
 	return (
 		<Layout title={pageTitle}>
 			<div className={styles.coin_page}>
@@ -16,8 +18,9 @@ const Coin = ({ coin }) => {
 					<div className={styles.coin_price_details}>
 						<h5>Rank : # {coin.market_cap_rank} </h5>
 						<div className={styles.coin}>
-							<img
-								src={coin.image.small}
+							<Image
+								loader={myLoader}
+								src={`${coin.image.small}`}
 								alt={coin.name}
 								width={40}
 								height={40}
@@ -38,13 +41,13 @@ const Coin = ({ coin }) => {
 								<small className={styles.coin_price__age}>
 									{coin.market_data.price_change_percentage_24h < 0 ? (
 										<span className={(styles.coin_percent, styles.red)}>
-											<IoTrendingDown /> (
+											<MdTrendingDown /> (
 											{coin.market_data.price_change_percentage_24h.toFixed(2)}{' '}
 											%)
 										</span>
 									) : (
 										<span className={(styles.coin_percent, styles.green)}>
-											<IoMdTrendingUp color='#13c783' />{' '}
+											<MdTrendingUp color='#13c783' />{' '}
 											{coin.market_data.price_change_percentage_24h.toFixed(2)}{' '}
 											%
 										</span>
