@@ -10,7 +10,7 @@ const Footer = () => {
 					rel='noopener noreferrer'>
 					{/* Powered by Playhouse Media */}
 					<span className={styles.logo}>
-						<img
+						<Image
 							src='/logobrand.svg'
 							alt='Playhouse Media Logo'
 							width={184}

@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import styles from './Coins.module.scss';
 
 const Coins = ({
@@ -8,47 +9,52 @@ const Coins = ({
 	symbol,
 	marketcap,
 	volume,
-	image,
+	coinIimage,
 	priceChange,
 	id,
 }) => {
+	const myLoader = ({ src }) => {
+		return `${coinIimage}`;
+	};
+
 	return (
 		<Link href='/coin/[id]' as={`/coin/${id}`}>
 			<a>
-			<div className={styles.coin_container}>
-				<div className={styles.coin_row}>
-					<div className={styles.coin}>
-						<h1 className={styles.coin_position}> {position} </h1>
-						<img
-							src={image}
-							height='100'
-							width='100'
-							alt={id}
-							className={styles.coin_img}
-						/>
-						<h1 className={styles.coin_h1}>{name}</h1>
-						<h4 className={styles.coin_symbol}>{symbol}</h4>
-					</div>
-					<div className={styles.coin_data}>
-						<p className={styles.coin_price}>$ {price.toLocaleString()} </p>
-						<p className={styles.coin_volume}>$ {volume.toLocaleString()}</p>
+				<div className={styles.coin_container}>
+					<div className={styles.coin_row}>
+						<div className={styles.coin}>
+							<h1 className={styles.coin_position}> {position} </h1>
+							<Image
+								loader={myLoader}
+								src={`${coinIimage}`}
+								height={50}
+								width={50}
+								alt={id}
+								className={styles.coin__img}
+							/>
+							<h1 className={styles.coin_h1}>{name}</h1>
+							<h4 className={styles.coin_symbol}>{symbol}</h4>
+						</div>
+						<div className={styles.coin_data}>
+							<p className={styles.coin_price}>$ {price.toLocaleString()} </p>
+							<p className={styles.coin_volume}>$ {volume.toLocaleString()}</p>
 
-						{priceChange < 0 ? (
-							<p className={(styles.coin_percent, styles.red)}>
-								{priceChange.toFixed(2)} %
-							</p>
-						) : (
-							<p className={(styles.coin_percent, styles.green)}>
-								{priceChange.toFixed(2)} %
-							</p>
-						)}
+							{priceChange < 0 ? (
+								<p className={(styles.coin_percent, styles.red)}>
+									{priceChange.toFixed(2)} %
+								</p>
+							) : (
+								<p className={(styles.coin_percent, styles.green)}>
+									{priceChange.toFixed(2)} %
+								</p>
+							)}
 
-						<p className={styles.coin_marketcap}>
-							$ {marketcap.toLocaleString()}
-						</p>
+							<p className={styles.coin_marketcap}>
+								M Cap: $ {marketcap.toLocaleString()}
+							</p>
+						</div>
 					</div>
 				</div>
-			</div>
 			</a>
 		</Link>
 	);

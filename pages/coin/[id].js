@@ -1,9 +1,9 @@
 import moment from 'moment';
+// import Image from 'next/image';
 import Layout from '../../components/Layout';
 import styles from './Coin.module.scss';
 
 import { MdTrendingUp, MdTrendingDown } from 'react-icons/md';
-import { FaLongArrowAltUp, FaLongArrowAltDown } from 'react-icons/fa';
 import { IoTrendingDown, IoMdTrendingUp } from 'react-icons/io';
 
 const Coin = ({ coin }) => {
@@ -19,6 +19,8 @@ const Coin = ({ coin }) => {
 							<img
 								src={coin.image.small}
 								alt={coin.name}
+								width={40}
+								height={40}
 								className={(styles.coin_image, styles.coin__item)}
 							/>
 							<h1 className={(styles.coin_name, styles.coin__item)}>
