@@ -19,7 +19,7 @@ const Header = () => {
 										transform='translate(-152.129)'
 										fill='none'
 										stroke='#6f54cc'
-										stroke-width='2'
+										strokeWidth='2'
 									/>
 									<path
 										id='Path_2'
@@ -27,7 +27,7 @@ const Header = () => {
 										d='M14,97.368,75.646,65,134.74,97.368,75.646,130.81Z'
 										fill='none'
 										stroke='#6f54cc'
-										stroke-width='2'
+										strokeWidth='2'
 									/>
 									<line
 										id='Line_1'
@@ -36,7 +36,7 @@ const Header = () => {
 										transform='translate(14 97)'
 										fill='none'
 										stroke='#6f54cc'
-										stroke-width='2'
+										strokeWidth='2'
 									/>
 									<path
 										id='Path_3'
