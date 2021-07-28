@@ -38,8 +38,6 @@ const Coins = ({
 						</div>
 						<div className={styles.coin_data}>
 							<p className={styles.coin_price}>$ {price.toLocaleString()} </p>
-							<p className={styles.coin_volume}>$ {volume.toLocaleString()}</p>
-
 							{priceChange < 0 ? (
 								<p className={(styles.coin_percent, styles.red)}>
 									<MdTrendingDown /> {priceChange.toFixed(2)} %
@@ -49,6 +47,7 @@ const Coins = ({
 									<MdTrendingUp /> {priceChange.toFixed(2)} %
 								</p>
 							)}
+							<p className={styles.coin_volume}>$ {volume.toLocaleString()}</p>
 
 							<p className={styles.coin_marketcap}>
 								M Cap: $ {marketcap.toLocaleString()}
