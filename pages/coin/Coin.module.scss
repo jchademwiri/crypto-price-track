@@ -57,7 +57,7 @@
 		padding: 15px;
 		display: grid;
 		gap: 40px;
-		grid-template-columns: 2fr 1fr;
+		grid-template-columns: 1fr 2fr;
 
 		.coin_supply_details {
 			.supply__item {
@@ -97,23 +97,23 @@
 	}
 }
 
-@media screen and (max-width: 520px) {
-	.coin_page {
-		.grid_container_two {
-			.coin_supply_details {
-				.supply__item {
-					flex-direction: column;
-					text-align: center;
-					align-items: center;
+// @media screen and (max-width: 520px) {
+// 	.coin_page {
+// 		.grid_container_two {
+// 			.coin_supply_details {
+// 				.supply__item {
+// 					flex-direction: column;
+// 					text-align: center;
+// 					align-items: center;
 
-					p {
-						padding: 7px 0;
-					}
-				}
-			}
-		}
-	}
-}
+// 					p {
+// 						padding: 7px 0;
+// 					}
+// 				}
+// 			}
+// 		}
+// 	}
+// }
 
 @media screen and (max-width: 450px) {
 	.coin_page {

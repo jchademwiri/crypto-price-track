@@ -1,5 +1,6 @@
 import moment from 'moment';
 import Image from 'next/image';
+import Link from 'next/link';
 import Layout from '../../components/Layout';
 import styles from './Coin.module.scss';
 
@@ -9,6 +10,10 @@ const Coin = ({ coin }) => {
 	let pageTitle = `${coin.name} Price `;
 	const todayDate = new Date();
 	const myLoader = ({ src }) => {
+		return `${coin.image.small}`;
+	};
+
+	const myLink = ({ src }) => {
 		return `${coin.image.small}`;
 	};
 	return (
@@ -76,56 +81,6 @@ const Coin = ({ coin }) => {
 
 				{/* ======= end of grid container one  */}
 				<div className={styles.grid_container_two}>
-					<div className={styles.coin_supply_details}>
-						<div className={styles.supply__item}>
-							{/* market cap  */}
-							<p>Market Cap:</p>
-							<p>$ {coin.market_data.market_cap.usd.toLocaleString()}</p>
-						</div>
-						<div className={styles.supply__item}>
-							{/* Curculating Supply  */}
-							<p>Circulating Supply:</p>
-							<p>
-								{coin.symbol}{' '}
-								{coin.market_data.circulating_supply.toLocaleString()}
-							</p>
-						</div>
-						<div className={styles.supply__item}>
-							{/* Total Supply  */}
-							<p>Total Supply: </p>
-							<p>
-								{/* {coin.market_data.total_supply.toLocaleString()}{' '} */}
-								{coin.market_data.total_supply == null ? (
-									<span className={styles.coin_percent}>Not Provided</span>
-								) : (
-									<span className={styles.coin_percent}>
-										{coin.symbol}{' '}
-										{coin.market_data.total_supply.toLocaleString()}
-									</span>
-								)}
-							</p>
-						</div>
-
-						<div className={styles.supply__item}>
-							{/* Date updated  */}
-							<p>Last Updated:</p>
-							<p>
-								{' '}
-								{
-									(coin.market_data.last_updated = moment(
-										todayDate,
-										'DD-MM-YYY'
-									).format('DD-MMMM-YYYY'))
-								}
-							</p>
-						</div>
-						<div className={styles.supply__item}>
-							<p>Official Website: </p>
-							<p>{coin.links.homepage}</p>
-						</div>
-					</div>
-					{/* ============== End of supply details  */}
-
 					<div className={styles.coin_price_details}>
 						<div className={styles.supply__item}>
 							{/* 24 h change  */}
@@ -204,6 +159,62 @@ const Coin = ({ coin }) => {
 							)}
 						</div>
 					</div>
+
+					<div className={styles.coin_supply_details}>
+						<div className={styles.supply__item}>
+							{/* market cap  */}
+							<p>Market Cap:</p>
+							<p>$ {coin.market_data.market_cap.usd.toLocaleString()}</p>
+						</div>
+						<div className={styles.supply__item}>
+							{/* Curculating Supply  */}
+							<p>Circulating Supply:</p>
+							<p>
+								{coin.symbol}{' '}
+								{coin.market_data.circulating_supply.toLocaleString()}
+							</p>
+						</div>
+						<div className={styles.supply__item}>
+							{/* Total Supply  */}
+							<p>Total Supply: </p>
+							<p>
+								{/* {coin.market_data.total_supply.toLocaleString()}{' '} */}
+								{coin.market_data.total_supply == null ? (
+									<span className={styles.coin_percent}>Not Provided</span>
+								) : (
+									<span className={styles.coin_percent}>
+										{coin.symbol}{' '}
+										{coin.market_data.total_supply.toLocaleString()}
+									</span>
+								)}
+							</p>
+						</div>
+
+						<div className={styles.supply__item}>
+							{/* Date updated  */}
+							<p>Last Updated:</p>
+							<p>
+								{' '}
+								{
+									(coin.market_data.last_updated = moment(
+										todayDate,
+										'DD-MM-YYY'
+									).format('DD-MMMM-YYYY'))
+								}
+							</p>
+						</div>
+						<div className={styles.supply__item}>
+							<p>Official Website: </p>
+
+							<a
+								href={coin.links.homepage}
+								target='_blank'
+								rel='noopener noreferrer'>
+								{coin.links.homepage}
+							</a>
+						</div>
+					</div>
+					{/* ============== End of supply details  */}
 				</div>
 			</div>
 		</Layout>
