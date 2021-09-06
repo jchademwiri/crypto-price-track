@@ -19,7 +19,7 @@ const Coins = ({
 	};
 
 	return (
-		<Link href='/coin/[id]' as={`/coin/${id}`}>
+		<Link href='/[id]' as={`/${id}`}>
 			<a>
 				<div className={styles.coin_container}>
 					<div className={styles.coin_row}>
