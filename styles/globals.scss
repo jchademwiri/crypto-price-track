@@ -6,6 +6,8 @@ body {
 		Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 }
 
+$primary: #6f54cc;
+
 a {
 	color: inherit;
 	text-decoration: none;
@@ -48,4 +50,38 @@ body {
 	width: 150px;
 }
 
+.paginationBttns {
+	width: 80%;
+	height: 40px;
+	list-style: none;
+	display: flex;
+	justify-content: center;
+}
 
+.paginationBttns a {
+	padding: 10px;
+	margin: 8px;
+	border-radius: 5px;
+	border: 1px solid $primary;
+	color: $primary;
+	cursor: pointer;
+}
+
+.paginationBttns a:hover {
+	color: white;
+	background-color: $primary;
+}
+
+.paginationActive a {
+	color: white;
+	background-color: $primary;
+}
+
+.paginationDisabled a {
+	color: grey;
+	background-color: grey;
+}
+
+.paginate {
+	margin-top: 25px;
+}
