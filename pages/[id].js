@@ -7,7 +7,7 @@ import styles from '../styles/Coin.module.scss';
 import { MdTrendingUp, MdTrendingDown } from 'react-icons/md';
 
 const Coin = ({ coin }) => {
-	let pageTitle = `${coin.name} Price `;
+	let pageTitle = `${coin.name} Price Details `;
 	const todayDate = new Date();
 	const myLoader = ({ src }) => {
 		return `${coin.image.small}`;
