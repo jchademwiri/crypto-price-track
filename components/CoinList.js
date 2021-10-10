@@ -5,7 +5,7 @@ import Coins from './Coins';
 export default function CoinList({ filteredCoins }) {
 	const [pageNumber, setPageNumber] = useState(0);
 
-	const coinsPerPage = 10;
+	const coinsPerPage = 50;
 	const pagesVisited = pageNumber * coinsPerPage;
 
 	const displayCoins = filteredCoins
