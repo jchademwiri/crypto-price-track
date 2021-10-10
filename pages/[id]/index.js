@@ -1,7 +1,7 @@
 import moment from 'moment';
 import Image from 'next/image';
 import Head from 'next/head';
-import styles from '../styles/Coin.module.scss';
+import styles from '../../styles/Coin.module.scss';
 
 import { MdTrendingUp, MdTrendingDown } from 'react-icons/md';
 
