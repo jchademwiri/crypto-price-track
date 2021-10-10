@@ -1,7 +1,6 @@
 import moment from 'moment';
 import Image from 'next/image';
-import Link from 'next/link';
-import Layout from '../components/Layout';
+import Head from 'next/head';
 import styles from '../styles/Coin.module.scss';
 
 import { MdTrendingUp, MdTrendingDown } from 'react-icons/md';
@@ -13,11 +12,11 @@ const Coin = ({ coin }) => {
 		return `${coin.image.small}`;
 	};
 
-	const myLink = ({ src }) => {
-		return `${coin.image.small}`;
-	};
 	return (
-		<Layout title={pageTitle}>
+		<>
+			<Head>
+				<title> {pageTitle} </title>
+			</Head>
 			<div className={styles.coin_page}>
 				<div className={styles.grid_container_one}>
 					<div className={styles.coin_price_details}>
@@ -217,7 +216,7 @@ const Coin = ({ coin }) => {
 					{/* ============== End of supply details  */}
 				</div>
 			</div>
-		</Layout>
+		</>
 	);
 };
 
@@ -233,7 +232,7 @@ export async function getServerSideProps(context) {
 
 	return {
 		props: {
-			coin: data,
-		},
+			coin: data
+		}
 	};
 }

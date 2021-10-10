@@ -2,7 +2,7 @@ import { useState } from 'react';
 
 import SearchBar from '../components/SearchBar';
 import CoinList from '../components/CoinList';
-import Layout from '../components/Layout';
+
 
 export default function Home({ filteredCoins }) {
 	const [search, setSearch] = useState('');
@@ -18,12 +18,12 @@ export default function Home({ filteredCoins }) {
 	};
 
 	return (
-		<Layout>
+		<>
 			<div className='coin_app'>
 				<SearchBar onChange={handleChange} />
 				<CoinList filteredCoins={allCoins} />
 			</div>
-		</Layout>
+		</>
 	);
 }
 
@@ -36,7 +36,7 @@ export const getServerSideProps = async () => {
 
 	return {
 		props: {
-			filteredCoins,
-		},
+			filteredCoins
+		}
 	};
 };
